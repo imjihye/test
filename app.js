@@ -12,6 +12,8 @@ var db = require('monk')('localhost:27017/whatap');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var stream = require('./routes/stream');
+var http = require('./routes/http');
+var socket = require('./routes/socket');
 
 var app = express();
 
@@ -36,6 +38,8 @@ app.use(function(req, res, next){
 app.use('/', routes);
 app.use('/users', users);
 app.use('/stream', stream);
+app.use('/http', http);
+app.use('/socket', socket);
 
 app.use(function(req, res, next){
   db.close();

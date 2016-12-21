@@ -1,14 +1,9 @@
 'use strict';
 
-var loadtest = require('loadtest');
 var express = require('express');
 var router = express.Router();
 
 router.get('/get', function(req, res, next){
-	console.log('asdf')
-
-
-
 	var db = req.db;
 	var collection = db.get('user');
 	collection.find({}, { sort: {date: 1} , limit: parseInt(req.query.limit)}, function(e, result){
@@ -19,7 +14,6 @@ router.get('/get', function(req, res, next){
 router.post('/post', function(req, res, next){
 	var db = req.db;
 	var collection = db.get('user');
-
 	collection.update({name: req.body.name}, {name: 'test'}, function(err, result){
 		res.send('ok');
 	});

@@ -1,6 +1,5 @@
 'use strict';
 
-var loadtest = require('loadtest');
 var express = require('express');
 var stream = require('stream');
 var util = require('util');

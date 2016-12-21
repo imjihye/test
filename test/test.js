@@ -67,10 +67,7 @@ describe.skip('users', function(){
 	});
 });
 
-
-
-
-describe('stream', function(){
+describe.skip('stream', function(){
 	describe('stream lib test', function(){
 		it('readable', function(){
 			request
@@ -89,9 +86,43 @@ describe('stream', function(){
 		});
 
 
-		it.only('duplex', function(){
+		it('duplex', function(){
 			request
 			.get('/stream/duplex')
+			.expect(200, function(err, data){
+				if(err) console.log(err);
+			});
+		});
+	});
+});
+
+describe.skip('http', function(){
+	describe('http lib test', function(){
+		it('clientRequest', function(){
+			request
+			.get('/http/clientRequest')
+			.expect(200, function(err, data){
+				if(err) console.log(err);
+			});
+		});
+	});
+});
+
+
+
+describe('socket', function(){
+	describe('socket lib test', function(){
+		it('/socket client', function(){
+			request
+			.get('/socket/client')
+			.expect(200, function(err, data){
+				if(err) console.log(err);
+			});
+		});
+
+		it.only('/socket server', function(){
+			request
+			.get('/socket/server')
 			.expect(200, function(err, data){
 				if(err) console.log(err);
 			});
