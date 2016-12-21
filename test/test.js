@@ -96,11 +96,19 @@ describe.skip('stream', function(){
 	});
 });
 
-describe.skip('http', function(){
+describe('http', function(){
 	describe('http lib test', function(){
-		it('clientRequest', function(){
+		it('client', function(){
 			request
-			.get('/http/clientRequest')
+			.get('/http/client')
+			.expect(200, function(err, data){
+				if(err) console.log(err);
+			});
+		});
+
+		it.only('server', function(){
+			request
+			.get('/http/server')
 			.expect(200, function(err, data){
 				if(err) console.log(err);
 			});
@@ -110,7 +118,7 @@ describe.skip('http', function(){
 
 
 
-describe('socket', function(){
+describe.skip('socket', function(){
 	describe('socket lib test', function(){
 		it('/socket client', function(){
 			request
