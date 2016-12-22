@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/client', function(req, res, next){
 	var client = net.connect({port:8107, host:'localhost'}, function(){
 		console.log('client connected =======');
-		client.write('data????? \r\n');
+		client.write('data : \r\n');
 	});
 
     client.setTimeout(500);
